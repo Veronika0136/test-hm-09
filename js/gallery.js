@@ -50,14 +50,13 @@ const refs = {
   gallery: document.querySelector('.gallery'),
 };
 
-function imageTemplate(image) {
+function imageTemplate({preview, original, description}) {
   return `<li class="gallery-item">
-  <a class="gallery-link" href="${image.original}" onclick="return false;">
+  <a class="gallery-link" href="${original}" onclick="return false;">
     <img
       class="gallery-image"
-      src="${image.preview}"
-      data-source="${image.original}"
-      alt="${image.description}"
+      src="${preview}"
+      alt="${description}"
     />
   </a>
 </li>`;
@@ -70,21 +69,8 @@ function imagesTemplate(images) {
 const markup = imagesTemplate(images);
 refs.gallery.innerHTML = markup;
 
-refs.gallery.addEventListener('click', evt => {
-  if (evt.target === evt.currentTarget) return;
-  const liElem = evt.target.closest('li');
-
-  let href = evt.target.dataset.source;
- 
-  
-  let alt = liElem.firstElementChild.firstElementChild.alt;
-  showModal(href, alt);
+const box = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt', 
+  captionDelay: 250,
+  overlayOpacity: 0.8 
 });
-
-function showModal(item, a) {
-  const markup = `<div class="modal"> 
-                 <img class="modal-img" src="${item}" alt="${a}"/>
-                  </div>`;
-  const modal = basicLightbox.create(markup);
-  modal.show();
-}
