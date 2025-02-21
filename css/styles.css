@@ -1,0 +1,40 @@
+.gallery {
+  padding-top: 24px;
+  padding-bottom: 24px;
+
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.gallery-item {
+  list-style: none;
+  margin: 0px;
+  width: 360px;
+  height: 200px;
+}
+
+.gallery-link {
+}
+
+.gallery-image {
+  display: block;
+  width: 360px;
+  height: 200px;
+}
+
+.gallery-image:hover {
+  width: 376px;
+  height: 208px;
+}
+
+.modal {
+}
+
+.modal-img {
+  display: block;
+  width: 1112px;
+  height: 640px;
+}
