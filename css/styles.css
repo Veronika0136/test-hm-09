@@ -24,17 +24,3 @@
   width: 360px;
   height: 200px;
 }
-
-.gallery-image:hover {
-  width: 376px;
-  height: 208px;
-}
-
-.modal {
-}
-
-.modal-img {
-  display: block;
-  width: 1112px;
-  height: 640px;
-}
