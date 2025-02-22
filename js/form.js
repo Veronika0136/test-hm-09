@@ -36,9 +36,12 @@ function initPage() {
   const data = loadFromLS(stKey);
   refs.form.elements.email.value = data?.email || '';
   refs.form.elements.message.value = data?.message || '';
+  formData.email = data?.email || '';
+  formData.message = data?.message || '';
 }
 
 initPage();
+
 
 refs.form.addEventListener('submit', e => {
   e.preventDefault();
@@ -49,5 +52,7 @@ refs.form.addEventListener('submit', e => {
     console.log(formData);
     localStorage.removeItem(stKey);
     e.target.reset();
-  }
+    formData.email = '';
+    formData.message = '';
+}
 });
